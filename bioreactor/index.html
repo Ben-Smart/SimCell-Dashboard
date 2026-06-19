@@ -109,6 +109,20 @@ header {
   width:100%; max-height:340px; object-fit:contain; border-radius:10px;
 }
 
+.eq-block {
+  margin-top:18px;
+  padding:14px 22px;
+  background:rgba(125,211,252,.06);
+  border:1px solid rgba(125,211,252,.22);
+  border-radius:10px;
+  color:#e2e8f0;
+  font-family:'Courier New',monospace;
+  font-size:.95rem;
+  line-height:2;
+}
+.eq-block .eq-main { font-size:1.05rem; text-align:center; letter-spacing:.04em; }
+.eq-block .eq-key  { font-size:.78rem; color:#7dd3fc; margin-top:6px; }
+
 .pnav {
   padding:14px 26px;
   border-top:1px solid rgba(255,255,255,.06);
@@ -646,7 +660,9 @@ const SECTIONS = {
         heading: 'Stirrer Geometry',
         text: 'Stirrer blades are located in the annular space between the inner and outer vessels. The blade radius is 26.37 mm. Mixing velocity used in the kₗ correlation is v = π × r × N, where N is the rotation frequency [s⁻¹]. At 3 rev s⁻¹, v ≈ 0.249 m s⁻¹. Rotation of the hydrogel itself does not appear to significantly affect molecular diffusion within it — the 1-D model shows negligible change in species profiles. This effect still needs to be incorporated into the 2-D model.',
         mediaFile: 'images/rotation_effect.png', mediaType: 'image',
-        mediaLabel: null
+        mediaLabel: null,
+        equation: 'K<sub>L</sub> = 0.62 × <span style="font-size:1.15em">√</span><span style="text-decoration:overline; padding:0 5px">ω / ν</span> × (ν / D<sub>L</sub>)<sup>1/3</sup>',
+        eqKey: 'ω = angular velocity [rad s<sup>−1</sup>] · ν = kinematic viscosity [m² s<sup>−1</sup>] · D<sub>L</sub> = liquid-phase diffusivity [m² s<sup>−1</sup>]'
       },
       {
         tag: 'Mass transfer',
@@ -760,6 +776,7 @@ function renderSlide() {
     `<span class="slide-tag">${slide.tag}</span>
      <h2>${slide.heading}</h2>
      <p>${slide.text}</p>
+     ${slide.equation ? `<div class="eq-block"><div class="eq-main">${slide.equation}</div>${slide.eqKey ? `<div class="eq-key">${slide.eqKey}</div>` : ''}</div>` : ''}
      ${mediaBlock(slide.mediaFile, slide.mediaType, slide.mediaLabel)}
      ${slide.mediaFile2 !== undefined ? mediaBlock(slide.mediaFile2, slide.mediaType, slide.mediaLabel2) : ''}`;
 

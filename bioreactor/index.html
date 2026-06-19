@@ -640,35 +640,6 @@ const SECTIONS = {
         heading: 'CO₂ / O₂ Transfer and pH Equilibria',
         text: 'CO₂ and O₂ dissolve across the gas–liquid interface following Henry’s Law. In the liquid phase CO₂ undergoes the full carbonate equilibrium (CO₂(aq) ⇌ H₂CO₃ ⇌ HCO₃⁻ + H⁺ ⇌ CO₃²⁻ + H⁺), while O₂ is consumed by cellular respiration. Lactic acid and ammonia also contribute to the proton balance, so the local pH is set by gas transfer, lactate production, and NH₄⁺ speciation together.',
         mediaFile: 'images/gas_liquid_chemistry.svg', mediaType: 'image'
-      },
-      
-      {
-        tag: 'Two-film theory',
-        heading: 'Gas-Phase Mass Transfer',
-        text: 'CO₂ and O₂ exchange across the gas–liquid interface is modelled with two-film theory. The molar flux is J = kₗ (C* − Cₜᵤᵬᵏ), where C* is the Henry’s law interfacial concentration and kₗ is the liquid-phase mass transfer coefficient [m s⁻¹]. Only neutral species (CO₂, O₂) exchange across the interface — ionic species (HCO₃⁻, CO₃²⁻, OH⁻, H⁺) do not.',
-        mediaLabel: '[ MATLAB plot: CO₂ and O₂ flux J vs time ]',
-        mediaFile: null, mediaType: 'image'
-      },
-      {
-        tag: 'Empirical correlation',
-        heading: 'Mass Transfer Coefficient kₗ',
-        text: 'kₗ is computed from the mixing velocity v and liquid depth d. Species-specific kₗ values are scaled from the CO₂ reference by the square-root of diffusivity: kₗ,i = kₗ,CO₂ · √(Dᵢ/D₀).',
-        mediaLabel: '[ MATLAB plot: kₗ vs mixing velocity v ]',
-        mediaFile: null, mediaType: 'image'
-      },
-      {
-        tag: 'Zeebe (2011) · Ferrell & Himmelblau (1967)',
-        heading: 'Diffusivities in Seawater',
-        text: 'CO₂ diffusivity follows the power-law of Zeebe (2011), scaled for salinity via the dynamic viscosity of seawater (Sharqawy 2010). O₂ uses a Stokes–Einstein correction from Dₜᵉᶠ = 2.10 × 10⁻⁹ m² s⁻¹ at 25 °C (Ferrell & Himmelblau 1967).',
-        mediaLabel: '[ MATLAB plot: Dₙₒ₂ and Dₒ₂ vs temperature ]',
-        mediaFile: null, mediaType: 'image'
-      },
-      {
-        tag: 'ODE solution',
-        heading: '[CO₂] and [O₂] Dynamics',
-        text: 'The ODE solution tracks total inorganic carbon (TC) and dissolved O₂ as they evolve from initial values toward atmospheric equilibrium. Carbonate speciation (CO₂, HCO₃⁻, CO₃²⁻) and pH are recomputed algebraically at each timestep via a Newton–Raphson [H⁺] solver.',
-        mediaLabel: '[ MATLAB plot: [CO₂], [O₂], pH vs time ]',
-        mediaFile: null, mediaType: 'image'
       }
     ]
   },

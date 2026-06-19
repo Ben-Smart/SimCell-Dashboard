@@ -54,6 +54,51 @@ header {
   font-size:.78rem; color:#6b7280; letter-spacing:.4px;
 }
 
+/* ─── Notebook to-do ─── */
+.notebook {
+  margin-top:28px;
+  display:flex;
+  width:310px;
+  border-radius:6px;
+  box-shadow:3px 4px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.12);
+  overflow:hidden;
+  transform:rotate(-1.2deg);
+}
+.nb-binding {
+  width:24px; flex-shrink:0;
+  background:repeating-linear-gradient(
+    180deg,
+    #b45309 0px, #b45309 7px,
+    #fefce8 7px, #fefce8 20px
+  );
+  border-right:2px solid #92400e;
+}
+.nb-inner {
+  flex:1;
+  padding:11px 13px 14px;
+  background:repeating-linear-gradient(
+    180deg,
+    #fefce8 0px, #fefce8 23px,
+    #bfdbfe 23px, #bfdbfe 24px
+  );
+}
+.nb-title {
+  font-size:.78rem; font-weight:700; color:#92400e;
+  margin-bottom:9px; padding-bottom:5px;
+  border-bottom:1.5px solid #fcd34d;
+  font-family:'Segoe UI',sans-serif;
+}
+.nb-items { list-style:none; padding:0; margin:0; }
+.nb-items li {
+  display:flex; align-items:flex-start; gap:7px;
+  font-size:.73rem; color:#1e293b; line-height:1.55;
+  padding:3px 0;
+  font-family:'Segoe UI',sans-serif;
+}
+.nb-items li::before {
+  content:'☐'; color:#78716c; flex-shrink:0; font-size:.8rem; margin-top:1px;
+}
+
 /* ─── Slide Panel ─── */
 #panel {
   position:fixed; top:0; right:0;
@@ -400,6 +445,15 @@ header {
     </svg>
   </div>
   <p class="hint">Click on any highlighted section to explore the model</p>
+  <div class="notebook">
+    <div class="nb-binding"></div>
+    <div class="nb-inner">
+      <div class="nb-title">&#x1F4DD;&nbsp; Ben's to do list</div>
+      <ul class="nb-items">
+        <li>Fit the parameters from the Arg pathway to fit a ROM</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════ SLIDE PANEL ═══════ -->

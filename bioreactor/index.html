@@ -760,18 +760,18 @@ const SECTIONS = {
     title: 'Cell Model',
     slides: [
       {
-        tag: 'Biological model',
-        heading: 'Cell Metabolism',
-        text: 'Cells embedded in the hydrogel consume O₂ and glucose while producing CO₂, lactic acid, and ammonia. Metabolic fluxes are described by Michaelis–Menten kinetics with respect to local O₂ concentration. Under hypoxia, glycolytic flux increases and lactate production rises.',
-        mediaLabel: '[ MATLAB diagram: metabolic pathway schematic ]',
-        mediaFile: null, mediaType: 'image'
+        tag: 'Full metabolic model',
+        heading: 'Whole-Cell Model — Overview',
+        text: 'A full metabolic model of the SimCell has been constructed, covering lactate-induced acetyl-CoA and energy generation, arginine synthesis from ammonia, FGF production, and polyphosphate-driven ATP regeneration. However, this model requires extensive parameter tuning and quantitative data from wet-lab experiments before it can be used reliably in simulation. The pathways are mechanistically correct but many kinetic constants remain to be measured.',
+        mediaLabel: '[ Cell model overview diagram ]',
+        mediaFile: 'images/cell_model_overview.png', mediaType: 'image'
       },
       {
-        tag: 'Cell dynamics',
-        heading: 'Growth & Proliferation',
-        text: 'Cell density evolves over time as cells proliferate within the hydrogel scaffold. Growth rate is limited by local O₂ and nutrient availability. As density increases, diffusion gradients steepen — which may ultimately limit the viable tissue thickness.',
-        mediaLabel: '[ MATLAB plot: cell density vs time and radial position ]',
-        mediaFile: null, mediaType: 'image'
+        tag: 'Reduced-order model',
+        heading: 'Arginine Pathway — Implemented in SimCells',
+        text: 'The arginine synthesis pathway (α-KG + NH₄⁺ → Glutamate → … → Arginine via gdhA, argB–H, argJ) is the key pathway implemented in the SimCell ODE. To reduce model complexity, the aim is to collapse this to a single ODE step. Before doing so, we must verify that none of the four co-substrates consumed in the pathway are limiting: NADH (oxidised to NAD⁺ in the TCA cycle), ATP (regenerated via polyphosphate kinase ppk), Carbamoyl-P (required for ornithine → citrulline, argF), and Aspartic Acid (required for citrulline → argininosuccinate, argG). If none of these limit flux, a reduced-order model (ROM) is valid for the full SimCell ODE.',
+        mediaLabel: '[ Arginine synthesis pathway ]',
+        mediaFile: 'images/arg_pathway.png', mediaType: 'image'
       }
     ]
   }

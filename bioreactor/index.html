@@ -177,9 +177,13 @@ header {
 .slide-list li:last-child { border-bottom:none; }
 .slide-list li::before { content:'±0'; color:#7dd3fc; flex-shrink:0; font-size:.95rem; margin-top:1px; }
 
-/* notebook hover */
+/* notebook accordion */
 .notebook { cursor:pointer; transition:transform .18s, box-shadow .18s; }
 .notebook:hover { transform:rotate(-0.4deg) scale(1.03); box-shadow:5px 6px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(0,0,0,.12); }
+.nb-items { max-height:0; overflow:hidden; transition:max-height .38s ease; margin:0; padding:0; }
+.notebook.open .nb-items { max-height:500px; }
+.nb-chevron { float:right; display:inline-block; transition:transform .3s; line-height:1; }
+.notebook.open .nb-chevron { transform:rotate(180deg); }
 
 .pnav {
   padding:14px 26px;
@@ -458,10 +462,10 @@ header {
     </svg>
   </div>
   <p class="hint">Click on any highlighted section to explore the model</p>
-  <div class="notebook" onclick="openPanel('todo')" title="Click to open">
+  <div class="notebook" id="notebook" onclick="toggleNotebook()" title="Click to expand">
     <div class="nb-binding"></div>
     <div class="nb-inner">
-      <div class="nb-title">&#x1F4DD;&nbsp; Ben’s to do list</div>
+      <div class="nb-title">&#x1F4DD;&nbsp; Ben’s to do list&nbsp;<span class="nb-chevron">&#x25BE;</span></div>
       <ul class="nb-items">
         <li>Fit the parameters from the Arg pathway to fit a ROM</li>
         <li>Fit other sections of the SimCell’s full ODE model</li>
@@ -786,26 +790,6 @@ const SECTIONS = {
         mediaFile: 'images/arg_pathway.png', mediaType: 'image'
       }
     ]
-  },
-
-  todo: {
-    title: 'Ben’s To-Do List',
-    slides: [
-      {
-        tag: 'Next steps',
-        heading: 'Modelling — Outstanding Tasks',
-        text: 'Key steps still needed to complete the SimCell bioreactor model:',
-        listItems: [
-          'Fit the parameters from the Arg pathway to fit a ROM',
-          'Fit other sections of the SimCell’s full ODE model',
-          'Fit the 2-D bioreactor model with the full SimCell model',
-          'Fit the gas exchange model into the 2-D model',
-          'Add an O₂ and CO₂ model to the SimCell model',
-          'Model the pH of the hydrogel',
-          'Look into a 3-D model in OpenFOAM'
-        ]
-      }
-    ]
   }
 };
 
@@ -889,6 +873,10 @@ document.addEventListener('keydown', e => {
 });
 
 window.addEventListener('DOMContentLoaded', () => { openPanel('intro'); });
+
+function toggleNotebook() {
+  document.getElementById('notebook').classList.toggle('open');
+}
 </script>
 </body>
 </html>

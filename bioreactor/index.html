@@ -279,8 +279,10 @@ header {
       <rect x="102" y="378" width="96" height="124" fill="url(#liqG)"/>
 
       <!-- ── Grey container walls flanking the hydrogel ── -->
-      <rect x="85"  y="266" width="17" height="94"  fill="#253c57" stroke="#5a85aa" stroke-width="1"/>
-      <rect x="198" y="266" width="17" height="94"  fill="#253c57" stroke="#5a85aa" stroke-width="1"/>
+      <rect x="85"  y="266" width="17" height="112" fill="#253c57" stroke="#5a85aa" stroke-width="1"/>
+      <rect x="198" y="266" width="17" height="112" fill="#253c57" stroke="#5a85aa" stroke-width="1"/>
+      <!-- Grey container bottom plate -->
+      <rect x="85"  y="360" width="130" height="18" fill="#253c57" stroke="#5a85aa" stroke-width="1"/>
 
       <!-- ── Hydrogel (at stirrer height, inside container) ── -->
       <rect x="102" y="272" width="96" height="88" fill="url(#gelG)" rx="1"/>
@@ -328,9 +330,12 @@ header {
       <rect x="206" y="260" width="46" height="100" fill="transparent"
             class="hot" onclick="openPanel('stirrer')"/>
       <!-- Container grey side walls -->
-      <rect x="83"  y="264" width="22" height="98"  fill="transparent"
+      <rect x="83"  y="264" width="22" height="116" fill="transparent"
             class="hot" onclick="openPanel('container')"/>
-      <rect x="195" y="264" width="22" height="98"  fill="transparent"
+      <rect x="195" y="264" width="22" height="116" fill="transparent"
+            class="hot" onclick="openPanel('container')"/>
+      <!-- Container bottom plate -->
+      <rect x="83"  y="358" width="134" height="22" fill="transparent"
             class="hot" onclick="openPanel('container')"/>
 
       <!-- Hydrogel -->

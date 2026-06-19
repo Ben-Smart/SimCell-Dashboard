@@ -644,14 +644,14 @@ const SECTIONS = {
       {
         tag: 'Bioreactor design',
         heading: 'Stirrer Geometry',
-        text: 'Stirrer blades are located in the annular space between the inner and outer vessels. The blade radius is 26.37 mm. Mixing velocity used in the kₗ correlation is v = π × r × N, where N is the rotation frequency [s⁻¹]. At 3 rev s⁻¹, v ≈ 0.249 m s⁻¹.',
-        mediaLabel: '[ Engineering drawing: stirrer dimensions ]',
-        mediaFile: null, mediaType: 'image'
+        text: 'Stirrer blades are located in the annular space between the inner and outer vessels. The blade radius is 26.37 mm. Mixing velocity used in the kₗ correlation is v = π × r × N, where N is the rotation frequency [s⁻¹]. At 3 rev s⁻¹, v ≈ 0.249 m s⁻¹. Rotation of the hydrogel itself does not appear to significantly affect molecular diffusion within it — the 1-D model shows negligible change in species profiles. This effect still needs to be incorporated into the 2-D model.',
+        mediaFile: 'images/rotation_effect.png', mediaType: 'image',
+        mediaLabel: null
       },
       {
         tag: 'Mass transfer',
         heading: 'Effect of Mixing on kₗ',
-        text: 'kₗ scales as a power-law with mixing velocity. Increasing the rotation speed directly controls gas transfer rates for both O₂ and CO₂, and is the primary operational parameter for maintaining dissolved gas concentrations at target values.',
+        text: 'The propeller blades are designed primarily to promote gas exchange at the liquid surface and throughout the bulk medium. At this stage they do not appear to be required for transport within the hydrogel itself. The Rushton-style impellers additionally prevent molecules from settling on the base of the reactor, maintaining a well-mixed liquid phase in the annular space surrounding the hydrogel container.',
         mediaLabel: '[ MATLAB plot: kₗ,O₂ and kₗ,CO₂ vs rotation speed ]',
         mediaFile: null, mediaType: 'image'
       }

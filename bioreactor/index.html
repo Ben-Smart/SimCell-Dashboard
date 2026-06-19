@@ -719,13 +719,6 @@ const SECTIONS = {
         mediaLabel: null,
         equation: 'K<sub>L</sub> = 0.62 × <span style="font-size:1.15em">√</span><span style="text-decoration:overline; padding:0 5px">ω / ν</span> × (ν / D<sub>L</sub>)<sup>1/3</sup>',
         eqKey: 'ω = angular velocity [rad s<sup>−1</sup>] · ν = kinematic viscosity [m² s<sup>−1</sup>] · D<sub>L</sub> = liquid-phase diffusivity [m² s<sup>−1</sup>]'
-      },
-      {
-        tag: 'Mass transfer',
-        heading: 'Effect of Mixing on kₗ',
-        text: 'The propeller blades are designed primarily to promote gas exchange at the liquid surface and throughout the bulk medium. At this stage they do not appear to be required for transport within the hydrogel itself. The Rushton-style impellers additionally prevent molecules from settling on the base of the reactor, maintaining a well-mixed liquid phase in the annular space surrounding the hydrogel container.',
-        mediaLabel: '[ MATLAB plot: kₗ,O₂ and kₗ,CO₂ vs rotation speed ]',
-        mediaFile: null, mediaType: 'image'
       }
     ]
   },
@@ -737,8 +730,8 @@ const SECTIONS = {
         tag: 'Pore area fraction',
         heading: 'Diffusive Area Through the Container Walls',
         text: 'Molecules cannot diffuse through the plastic walls of the hydrogel container — only through the pores. The effective diffusive area across each wall is therefore modelled as a fraction of the total boundary area, scaled by the proportion of the surface occupied by pores. This pore area fraction is A₀ = 0.503, meaning roughly half the wall area is open to diffusion. This parameter directly scales the flux of O₂, CO₂, NH₃ and lactate between the bulk liquid and the hydrogel interior through the side walls.',
-        mediaFile: null, mediaType: 'image',
-        mediaLabel: '[ Microscopy image of container wall pore structure ]'
+        mediaFile: 'images/bioreactor_species_animation_normal.mp4', mediaType: 'video',
+        mediaLabel: null
       },
       {
         tag: 'Solid-wall comparison',

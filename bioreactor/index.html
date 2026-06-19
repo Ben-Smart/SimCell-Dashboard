@@ -317,9 +317,6 @@ header {
       <!-- ══════════════════════════════════════
            INVISIBLE CLICKABLE HOTSPOT REGIONS
            ══════════════════════════════════════ -->
-      <!-- Gas phase / cap -->
-      <rect x="52" y="40"  width="196" height="184" fill="transparent"
-            class="hot" onclick="openPanel('gas')"/>
       <!-- Interface strip -->
       <rect x="52" y="210" width="196" height="24"  fill="transparent"
             class="hot" onclick="openPanel('interface')"/>
@@ -345,12 +342,6 @@ header {
       <!-- ══════════════════════════════
            PULSE INDICATOR DOTS
            ══════════════════════════════ -->
-      <!-- Gas phase -->
-      <g onclick="openPanel('gas')" class="hot">
-        <circle cx="258" cy="78"  r="6" fill="#bae6fd"/>
-        <circle cx="258" cy="78"  r="6" fill="none" stroke="#bae6fd" stroke-width="1.5"
-                class="pulse-ring"/>
-      </g>
       <!-- Gas-liquid interface -->
       <g onclick="openPanel('interface')" class="hot">
         <circle cx="258" cy="222" r="6" fill="#93c5fd"/>
@@ -379,12 +370,6 @@ header {
       <!-- ══════════════════════════════
            SECTION LABELS
            ══════════════════════════════ -->
-      <!-- Gas phase -->
-      <line x1="252" y1="73"  x2="238" y2="66"  stroke="#0369a1" stroke-width=".8"
-            stroke-dasharray="3,2"/>
-      <text x="236" y="62" fill="#0369a1" font-size="8"
-            font-family="Segoe UI,sans-serif" text-anchor="end">Gas phase</text>
-
       <!-- Interface -->
       <line x1="252" y1="217" x2="238" y2="230" stroke="#1d4ed8" stroke-width=".8"
             stroke-dasharray="3,2"/>
@@ -600,7 +585,9 @@ const SECTIONS = {
         heading: 'Full 2-D Bioreactor Simulation',
         text: 'All four dissolved species — O₂, CO₂, NH₃ and lactate — are now modelled on a 2-D finite-element mesh spanning the full bioreactor cross-section. The simulation captures three key physical processes: stirrer-driven convective mixing in the bulk liquid; the hydrogel container geometry and the boundary conditions it imposes; and species-specific diffusivities in both the liquid phase and the hydrogel interior. Press play to see the animated concentration field evolve over time.',
         mediaFile: 'images/bioreactor_species_animation_normal.mp4',
-        mediaType: 'video'
+        mediaType: 'video',
+        equation: 'D<sub>eff</sub> = D<sub>L</sub> × exp(− d<sub>s</sub> / d<sub>pore</sub>)',
+        eqKey: 'D<sub>eff</sub> = effective diffusivity in hydrogel &nbsp;·&nbsp; D<sub>L</sub> = liquid-phase diffusivity &nbsp;·&nbsp; d<sub>s</sub> = solute diameter &nbsp;·&nbsp; d<sub>pore</sub> = hydrogel pore size &nbsp;·&nbsp; <em>initial approximation — pore size now measured</em>'
       }
     ]
   },

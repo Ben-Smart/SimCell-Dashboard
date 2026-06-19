@@ -591,6 +591,19 @@ header {
 // ──────────────────────────────────────────────────────────────────
 const SECTIONS = {
 
+  intro: {
+    title: '2-D Bioreactor Simulation',
+    slides: [
+      {
+        tag: '2-D species model',
+        heading: 'Full 2-D Bioreactor Simulation',
+        text: 'All four dissolved species — O₂, CO₂, NH₃ and lactate — are now modelled on a 2-D finite-element mesh spanning the full bioreactor cross-section. The simulation captures three key physical processes: stirrer-driven convective mixing in the bulk liquid; the hydrogel container geometry and the boundary conditions it imposes; and species-specific diffusivities in both the liquid phase and the hydrogel interior. Press play to see the animated concentration field evolve over time.',
+        mediaFile: 'images/bioreactor_species_animation_normal.mp4',
+        mediaType: 'video'
+      }
+    ]
+  },
+
   gas: {
     title: 'Gas Phase',
     slides: [
@@ -765,7 +778,7 @@ function renderSlide() {
   function mediaBlock(file, type, label) {
     if (file) {
       const inner = type === 'video'
-        ? `<video src="${file}" controls autoplay muted loop></video>`
+        ? `<video src="${file}" controls style="width:100%;border-radius:10px"></video>`
         : `<img src="${file}" alt="">`;
       return `<div class="slide-media">${inner}</div>`;
     }
@@ -815,6 +828,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') changeSlide(1);
   if (e.key === 'ArrowLeft')  changeSlide(-1);
 });
+
+window.addEventListener('DOMContentLoaded', () => { openPanel('intro'); });
 </script>
 </body>
 </html>
